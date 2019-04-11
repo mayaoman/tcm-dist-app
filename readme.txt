@@ -1,0 +1,1 @@
+flutter emulators --launch Nexus_5_API_28
