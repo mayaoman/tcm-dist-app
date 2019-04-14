@@ -65,6 +65,7 @@ class _MainPageState extends State<MainPage> {
       body: _pageList[_tabIndex],
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
       ),
       bottomNavigationBar:new BottomNavigationBar(
           items: <BottomNavigationBarItem>[

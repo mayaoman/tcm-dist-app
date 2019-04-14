@@ -51,6 +51,10 @@ flutter:
     - images/unordered_list.png
     - images/user.png
     - images/user_selected.png
+    - images/bell.png
+    - images/2.0x/bell.png
+    - images/3.0x/bell.png
+    - images/test.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -8,11 +8,17 @@ class TcmDistApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '研深医药',
+      title: '下医仇家',
       theme: ThemeData(
         primarySwatch: Colors.red,
+        primaryColor:Colors.grey[50],
+        primaryTextTheme: new TextTheme(
+          body1: new TextStyle (
+            color:Color(0x333333ff)
+          )
+        )
       ),
-      home: MainPage(title: '研深医药'),
+      home: MainPage(title: '下医仇家'),
     );
   }
 }
