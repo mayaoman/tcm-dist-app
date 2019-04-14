@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:developer';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,37 +11,49 @@ class _HomePageState extends State<HomePage> {
   var _buttons;
 
   //导航条按钮
-  Column _navIconButton(icon, color, text) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 12,
-              color: Color(0xff333333)
-            ) 
-          )
+  Widget _navIconButton(icon, color, text, handleTap) {
+    // var backgroundColor = Color(0xfafafaff);
+    return GestureDetector(
+      onTap: handleTap,
+      // onTapDown:(tapDownDetails) { backgroundColor = Color(0xfffffffff); },
+      child: Container(
+        // color:backgroundColor,
+        child:Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: color),
+            Container(
+              margin: const EdgeInsets.only(top: 8),
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color(0xff333333)
+                ) 
+              )
+            )
+          ]
         )
-      ]
+      ),
     );
+  }
+
+  _handleNavIconButtonTap() {
+    debugPrint('haha');
   }
 
   //生成导航条按钮
   _generateButtons() {
     _buttons = [
-      _navIconButton(Icons.person_add, Colors.red, '邀请患者'),
-      _navIconButton(Icons.border_color, Colors.orange, '直接开方'),
-      _navIconButton(Icons.shopping_cart, Colors.green, '已开处方'),
-      _navIconButton(Icons.local_library, Colors.blue, '医药名录'),
-      _navIconButton(Icons.assignment, Colors.cyan, '常用方'),
-      _navIconButton(Icons.volume_up, Colors.red, '群发公告'),
-      _navIconButton(Icons.settings, Colors.orange, '服务设置'),
-      _navIconButton(Icons.date_range, Colors.blue, '坐诊信息')
+      _navIconButton(Icons.person_add, Colors.red, '邀请患者', _handleNavIconButtonTap),
+      _navIconButton(Icons.border_color, Colors.orange, '直接开方', _handleNavIconButtonTap),
+      _navIconButton(Icons.shopping_cart, Colors.green, '已开处方', _handleNavIconButtonTap),
+      _navIconButton(Icons.local_library, Colors.blue, '医药名录', _handleNavIconButtonTap),
+      _navIconButton(Icons.assignment, Colors.cyan, '常用方', _handleNavIconButtonTap),
+      _navIconButton(Icons.volume_up, Colors.red, '群发公告', _handleNavIconButtonTap),
+      _navIconButton(Icons.settings, Colors.orange, '服务设置', _handleNavIconButtonTap),
+      _navIconButton(Icons.date_range, Colors.blue, '坐诊信息', _handleNavIconButtonTap)
     ];
   }
 
@@ -72,20 +85,28 @@ class _HomePageState extends State<HomePage> {
         subtitle: Text('暂无消息')
   );
 
-  _getChatList(context) {
+  _chatListItem(headImage, title, subtitle) {
+     return ListTile(
+        leading: CircleAvatar(
+          backgroundImage: AssetImage(headImage)
+        ),
+        title: Text(title),
+        trailing:Text('2019年4月30日'),
+        subtitle: Text(subtitle)
+      );
+  }
+
+  _chatList(context) {
     return ListView(
+      shrinkWrap: true,
       children:ListTile.divideTiles(
         context:context,
         tiles: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage('images/bell.png')
-            ),
-            title: Text('Horse'),
-            subtitle: Text('A strong animal')
-          )
-        ].toList()
-      )
+          _chatListItem('images/man.png', '马要满', '图文调理'),
+          _chatListItem('images/woman.png', '杨子', '医生助理'),
+          _chatListItem('images/default.png', '孙刚', '图文调理')
+        ]
+      ).toList()
     );
   }
 
@@ -101,7 +122,8 @@ class _HomePageState extends State<HomePage> {
           _navIconButtonSection(),
           Divider(height:20.0),
           nofication,
-          Divider()
+          Divider(),
+          _chatList(context)
         ] 
       ),
     );

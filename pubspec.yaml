@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^2.0.0
+  scoped_model: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -54,6 +55,15 @@ flutter:
     - images/bell.png
     - images/2.0x/bell.png
     - images/3.0x/bell.png
+    - images/man.png
+    - images/2.0x/man.png
+    - images/3.0x/man.png
+    - images/woman.png
+    - images/2.0x/woman.png
+    - images/3.0x/woman.png
+    - images/default.png
+    - images/2.0x/default.png
+    - images/3.0x/default.png
     - images/test.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
