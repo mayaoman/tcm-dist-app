@@ -44,14 +44,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   //生成导航条按钮
-  _generateButtons() {
+  _generateButtons(context) {
     _buttons = [
-      _navIconButton(Icons.person_add, Colors.red, '邀请患者', _handleNavIconButtonTap),
+      _navIconButton(Icons.person_add, Colors.red, '邀请患者', ()=>Navigator.pushNamed(context, '/mycard')),
       _navIconButton(Icons.border_color, Colors.orange, '直接开方', _handleNavIconButtonTap),
       _navIconButton(Icons.shopping_cart, Colors.green, '已开处方', _handleNavIconButtonTap),
-      _navIconButton(Icons.local_library, Colors.blue, '医药名录', _handleNavIconButtonTap),
+      _navIconButton(Icons.local_library, Colors.blue, '医药名录', ()=>Navigator.pushNamed(context, '/medical_list')),
       _navIconButton(Icons.assignment, Colors.cyan, '常用方', _handleNavIconButtonTap),
-      _navIconButton(Icons.volume_up, Colors.red, '群发公告', _handleNavIconButtonTap),
+      _navIconButton(Icons.volume_up, Colors.red, '群发公告', ()=>Navigator.pushNamed(context, '/public_notice')),
       _navIconButton(Icons.settings, Colors.orange, '服务设置', _handleNavIconButtonTap),
       _navIconButton(Icons.date_range, Colors.blue, '坐诊信息', _handleNavIconButtonTap)
     ];
@@ -69,6 +69,7 @@ class _HomePageState extends State<HomePage> {
   Widget _navIconButtonSection() {
     return GridView.count(
       shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
       crossAxisCount: 4,
       childAspectRatio: 1.0,
       children:_buttons
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> {
   Widget nofication = ListTile(
         leading: CircleAvatar(
           backgroundImage: AssetImage('images/bell.png'),
-          backgroundColor: Color(0xE6C07A00)
+          backgroundColor: Color(0xFFE6C07A)
         ),
         title: Text('平台通知'),
         subtitle: Text('暂无消息')
@@ -99,6 +100,7 @@ class _HomePageState extends State<HomePage> {
   _chatList(context) {
     return ListView(
       shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
       children:ListTile.divideTiles(
         context:context,
         tiles: [
@@ -113,7 +115,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _generateButtons();
+    _generateButtons(context);
 
     return Scaffold(
     	body:ListView(

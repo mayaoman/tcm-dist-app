@@ -65,6 +65,20 @@ flutter:
     - images/2.0x/default.png
     - images/3.0x/default.png
     - images/test.jpg
+    - images/users.png
+    - images/2.0x/users.png
+    - images/3.0x/users.png
+    - images/qrcode.gif
+    - images/mycard_bg.jpg
+    - images/mycard_bg2.jpg
+    - images/doctor_man.png
+    - images/doctor_woman.png
+    - images/2.0x/doctor_woman.png
+    - images/3.0x/doctor_woman.png
+    - images/2.0x/doctor_man.png
+    - images/3.0x/doctor_man.png
+    - images/male16.png
+    - images/famale16.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
