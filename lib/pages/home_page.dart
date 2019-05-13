@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     _buttons = [
       _navIconButton(Icons.person_add, Colors.red, '邀请患者', ()=>Navigator.pushNamed(context, '/mycard')),
       _navIconButton(Icons.border_color, Colors.orange, '直接开方', _handleNavIconButtonTap),
-      _navIconButton(Icons.shopping_cart, Colors.green, '已开处方', _handleNavIconButtonTap),
+      _navIconButton(Icons.shopping_cart, Colors.green, '已开处方',()=>Navigator.pushNamed(context, '/prescription_orders')),
       _navIconButton(Icons.local_library, Colors.blue, '医药名录', ()=>Navigator.pushNamed(context, '/medical_list')),
       _navIconButton(Icons.assignment, Colors.cyan, '常用方', _handleNavIconButtonTap),
       _navIconButton(Icons.volume_up, Colors.red, '群发公告', ()=>Navigator.pushNamed(context, '/public_notice')),

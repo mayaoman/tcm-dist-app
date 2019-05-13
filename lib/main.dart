@@ -3,6 +3,7 @@ import 'pages/main_page.dart';
 import 'pages/mycard_page.dart';
 import 'pages/medical_list_page.dart';
 import 'pages/public_notice_page.dart';
+import 'pages/prescription_orders_page.dart';
 
 void main() => runApp(TcmDistApp());
 
@@ -28,6 +29,7 @@ class TcmDistApp extends StatelessWidget {
         '/mycard': (context) => MyCardPage(),
         '/medical_list':(context) => MedicalListPage(),
         '/public_notice':(context) => PublicNoticePage(),
+        '/prescription_orders':(context) => PrescriptionOrdersPage(),
       }
     );
   }
